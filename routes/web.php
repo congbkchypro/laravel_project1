@@ -79,3 +79,15 @@ Route::get('myView2', 'MyController@myView2');
 Route::get('time/{t}', 'MyController@time');
 
 View::share('view_share', 'Day la view share');
+
+Route::get('blade/{t}', function($t) {
+	return view('me.laravel', ['bien' => $t]);
+});
+
+Route::get('database', function() {
+	Schema::create('sanpham', function($tab) {
+		$tab->increments('id');
+		$tab->string('TenSanPham', 199);
+	});
+	echo "da t ao thanh cong";
+});
